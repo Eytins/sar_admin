@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>野外救援系统</title>
+    <link rel="stylesheet" th:href="@{/css/layui.css}">
+</head>
+<body>
+
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header">
+        <div class="layui-logo">SEARCH</div>
+        <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img th:src="@{/tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg}" class="layui-nav-img">
+                    ${username}
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a th:href="@{/login}">退出</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a th:href="@{/login}">Sign out</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" th:href="@{/mission/main}">任务管理</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a calss="" th:href="@{/user/main}">用户管理</a>
+
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/computer/main}">主机管理</a>
+                </li>
+                <li class="layui-nav-item"><a href="">the links</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 内容主体区域 -->
+    <div class="layui-body">
+        <table class="layui-table" lay-skin="line">
+            <colgroup>
+                <col>
+                <col width="150">
+                <col width="200">
+                <col width="100">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>Mission</th>
+                <th>test2</th>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <th>By</th>
+                <th>Closed</th>
+                <th>By</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>April 9, 2021, 12:16 p.m.</td>
+                <td>root</td>
+                <td>None</td>
+                <td>None</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>日志</legend>
+        </fieldset>
+
+        <table class="layui-table" lay-even="" lay-skin="nob">
+            <colgroup>
+                <col width="200">
+                <col width="200">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>At</th>
+                <th>User</th>
+                <th>Action</th>
+                <th>Message</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>jiangsu</td>
+                <td>root</td>
+                <td>gps</td>
+                <td>人生似修行</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

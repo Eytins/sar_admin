@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>野外救援系统</title>
+    <link rel="stylesheet" th:href="@{/css/layui.css}">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">SEARCH</div>
+        <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img th:src="@{/tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg}" class="layui-nav-img">
+                    ${username}
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a th:href="@{/login}">退出</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a th:href="@{/login}">Sign out</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" th:href="@{/mission/main}">任务管理</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a calss="" th:href="@{/user/main}">用户管理</a>
+
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/computer/main}">主机管理</a>
+                </li>
+                <li class="layui-nav-item"><a href="">the links</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <table class="layui-table">
+            <tr>
+                <th>Mission Name</th>
+                <th>Started</th>
+                <th>By</th>
+                <th>Actions</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>April 9, 2021, 12:16 p.m.</td>
+                <td>root</td>
+                <td>
+                    <!-- 添加  name="modify" -->
+                    <a th:href="@{/mission/Map}">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm " name="Map">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Map</button>
+                    </a>
+
+                    <a th:href="@{/mission/details}">
+                        <button class="layui-btn layui-btn-normal layui-btn-sm" type="button" name="Details">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Details</button>
+                    </a>
+
+                    <a th:href="@{/mission/Timeline}">
+                        <button class="layui-btn layui-btn-normal layui-btn-sm" type="button" name="Timeline">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Timeline</button>
+                    </a>
+
+                    <button class="layui-btn layui-btn-danger layui-btn-radius" type="button" onclick="javaScript:return confirm('是否确认删除');"  name="removeById">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <a th:href="@{/mission/addNew}">
+        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" name="newcreate">Start New Mission</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
