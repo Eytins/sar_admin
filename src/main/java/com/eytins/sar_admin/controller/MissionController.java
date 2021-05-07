@@ -7,31 +7,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mission")
 public class MissionController {
 
-    //跳任务管理主界面
+    /**
+     * 跳任务管理主界面
+     * @return
+     */
     @RequestMapping("/main")
     public String mission(){
         return "mission";
     }
 
-    //Map功能
+    /**
+     * Map功能
+     * @return
+     */
     @RequestMapping("/Map")
-    public String Map(){
+    public String map(){
         return "Map";
     }
 
-    //Details功能
+    /**
+     * Details功能
+     * @return
+     */
     @RequestMapping("/details")
     public String details(){
         return "details";
     }
 
-    //Timeline功能
+    /**
+     * Timeline功能
+     * @return
+     */
     @RequestMapping("/Timeline")
-    public String Timeline(){
+    public String timeline(){
         return "Timeline";
     }
 
-    //Start New Mission功能
+    /**
+     * Start New Mission功能
+     * @return
+     */
     @RequestMapping("/addNew")
     public String addNew(){
         return "addNew";
