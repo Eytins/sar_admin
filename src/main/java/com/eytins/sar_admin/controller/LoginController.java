@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.StringUtils;
 
+/**
+ * @Description
+ * @Author Eytins
+ * @Create 2021/5/7 23:43
+ */
+
 @Controller
 public class LoginController {
 
@@ -14,7 +20,7 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping({"/", "/login"})
+    @RequestMapping({"/login"})
     public String main() {
         return "login";
     }
