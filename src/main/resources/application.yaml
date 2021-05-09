@@ -1,12 +1,8 @@
 spring:
   #数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/search_management?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/search?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: 292918726
-
-  #项目热部署配置
-  devtools:
-    restart:
-      enabled: true
-      additional-paths: src/main/java
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
