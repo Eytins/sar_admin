@@ -1,4 +1,4 @@
-package com.eytins.sar_admin.config;
+package com.eytins.sar_admin.framework.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * @param http 基于http协议的Security配置对象。包含所有Security配置逻辑
-     * @throws Exception
+     * @throws Exception 异常
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -33,9 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/toLogin")
                 .loginProcessingUrl("/login")
                 .failureForwardUrl("/failure")
-                .successHandler((httpServletRequest, httpServletResponse, authentication) -> {
-                    httpServletResponse.sendRedirect("/toMain");
-                });
+                .successHandler((httpServletRequest, httpServletResponse, authentication) -> httpServletResponse.sendRedirect("/toMain"));
 
         http.logout()
                 .logoutSuccessUrl("/toLogin");
