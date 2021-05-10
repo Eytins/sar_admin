@@ -21,6 +21,6 @@ CREATE TABLE `user` (
 )  DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 
-INSERT INTO `user` VALUES (0, 'admin', 'E10ADC3949BA59ABBE56E057F20F883E', '超级管理员', 'eytins@foxmail.com', '19822656367', '超级管理员', 'ROLE_p0');
+INSERT INTO `user` VALUES (0, 'admin', '$2a$10$RmAAjGU8xibRVukEsCiEyu9b3K2IFdJMHLxXbE1dmK4dJ4/oXBU6W', '超级管理员', 'eytins@foxmail.com', '19822656367', '超级管理员', 'ROLE_p0');
 COMMIT;
 ```

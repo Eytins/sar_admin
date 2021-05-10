@@ -1,9 +1,9 @@
 spring:
   #数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/search?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://rm-bp18cz0lra064znmono.mysql.rds.aliyuncs.com/search?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: 292918726
+    password: '!@#123qwe'
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
