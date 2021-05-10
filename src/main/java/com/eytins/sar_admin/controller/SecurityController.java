@@ -27,4 +27,9 @@ public class SecurityController {
         model.addAttribute("loginFail","T");
         return "login";
     }
+
+    @RequestMapping("/toMain")
+    public String toMain(){
+        return "/main";
+    }
 }
