@@ -1,4 +1,4 @@
-package com.eytins.sar_admin.config;
+package com.eytins.sar_admin.framework.config;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

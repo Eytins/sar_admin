@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 
     @RequestMapping("/details")
-    public String details(){
+    public String details() {
         return "/details";
     }
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "/login";
     }
 
     @RequestMapping("/main")
-    public String main(){
+    public String main() {
         return "/main";
     }
 
     @RequestMapping("/Map")
-    public String map(){
+    public String map() {
         return "/Map";
     }
 
     @RequestMapping("/mission")
-    public String mission(){
+    public String mission() {
         return "/mission";
     }
 
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         return "/test";
     }
 
     @RequestMapping("/Timeline")
-    public String timeline(){
+    public String timeline() {
         return "/Timeline";
     }
 
     @RequestMapping("/User")
-    public String user(){
+    public String user() {
         return "/User";
     }
 

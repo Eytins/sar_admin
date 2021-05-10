@@ -18,9 +18,10 @@ spring:
   config:
     activate:
       on-profile: dev
+  thymeleaf:
+    cache: off
 mybatis:
   mapperLocations: classpath:mapper/*.xml
-
 ---
 
 spring:
