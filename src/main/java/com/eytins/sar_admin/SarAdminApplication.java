@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-@MapperScan("com.eytins.sar_admin.mapper")
+@MapperScan("com.eytins.sar_admin.dao")
 public class SarAdminApplication {
 
     public static void main(String[] args) {

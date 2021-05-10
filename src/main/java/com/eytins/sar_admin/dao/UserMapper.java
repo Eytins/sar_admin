@@ -1,6 +1,6 @@
-package com.eytins.sar_admin.mapper;
+package com.eytins.sar_admin.dao;
 
-import com.eytins.sar_admin.dao.User;
+import com.eytins.sar_admin.entity.User;
 import com.eytins.sar_admin.framework.basemapper.MyMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
 package com.eytins.sar_admin.service.impl;
 
-import com.eytins.sar_admin.dao.User;
-import com.eytins.sar_admin.mapper.UserMapper;
+import com.eytins.sar_admin.entity.User;
+import com.eytins.sar_admin.dao.UserMapper;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

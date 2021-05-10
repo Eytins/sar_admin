@@ -1,4 +1,4 @@
-package com.eytins.sar_admin.dao;
+package com.eytins.sar_admin.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
