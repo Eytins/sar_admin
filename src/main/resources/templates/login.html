@@ -75,44 +75,14 @@
                                 <div class="form-wrap">
                                     <div class="tab">
                                         <ul class="tab-menu">
-                                            <li class="active gtco-first"><a href="#" data-tab="signup">Sign up</a></li>
-                                            <li class="gtco-second"><a th:href="@{/main}" data-tab="login">Login</a></li>
+                                            <li class="active gtco-first"><a href="#" data-tab="login">Login</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div class="tab-content-inner active" data-content="signup">
-                                                <form class="#" th:action="@{/register}">
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="username">Username</label>
-                                                            <input type="text" class="form-control" id="username" name="username">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="password">Password</label>
-                                                            <input type="password" class="form-control" id="password" name="password">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="password2">Repeat Password</label>
-                                                            <input type="password" class="form-control" id="password2" name="password2">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <input type="submit" class="btn btn-primary" value="Sign up">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                            <div class="tab-content-inner" data-content="login">
+                                            <div class="tab-content-inner active" data-content="login">
                                                 <form class="#" th:action="@{/main}" >
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
-                                                            <label for="username">Username </label>
+                                                            <label for="username">Username</label>
                                                             <input type="text" class="form-control" id="username" name="username">
                                                         </div>
                                                     </div>
@@ -126,6 +96,8 @@
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
                                                             <input type="submit" class="btn btn-primary" value="Login"></input>
+                                                            <a th:href="@{/register_main}">
+                                                            <input type="" class="btn btn-primary" value="Sign Up"></input></a>
                                                         </div>
                                                     </div>
                                                 </form>

@@ -16,13 +16,16 @@ public class LoginController {
     }
 
     //进行注册
-    @RequestMapping("/register")
-    public String register(@RequestParam("username")String username,
-                           @RequestParam("pwd")String pwd,
-                           @RequestParam("pwd2")String pwd2){
-        //对用户名，密码进行处理判断
-
-        return "login";
+    @RequestMapping("/register_main")
+//    public String register(@RequestParam("username")String username,
+//                           @RequestParam("pwd")String pwd,
+//                           @RequestParam("pwd2")String pwd2){
+//        //对用户名，密码进行处理判断
+//
+//        return "login";
+//    }
+    public String register(){
+        return "register";
     }
     //进系统
     @RequestMapping("/main")
@@ -42,4 +45,5 @@ public class LoginController {
             return "login";
         }
     }
+
 }
