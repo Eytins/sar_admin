@@ -62,7 +62,7 @@
                 <div class="row row-mt-15em">
                     <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
                         <span class="intro-text-small">Welcome to SAR System</span>
-                        <h1>请注册</h1>
+                        <h1>用户注册</h1>
                     </div>
                     <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
                         <div class="form-wrap">
@@ -71,6 +71,8 @@
                                 <div class="tab-content">
                                     <div class="tab-content-inner active" data-content="register">
                                         <form class="#" th:action="@{/register}" th:method="post">
+
+                                            <span th:if="${registerFail} == 'T'" style="color: red">用户名已存在</span>
 
                                             <div class="row form-group">
                                                 <div class="col-md-12">
@@ -85,14 +87,6 @@
                                                     <label for="password">密码</label>
                                                     <input type="password" class="form-control" id="password"
                                                            name="password">
-                                                </div>
-                                            </div>
-
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="cuname">用户中文名</label>
-                                                    <input type="text" class="form-control" id="cuname"
-                                                           name="cuname">
                                                 </div>
                                             </div>
 
@@ -114,20 +108,20 @@
 
                                             <div class="row form-group">
                                                 <div class="col-md-12">
-                                                    <label for="role">身份：</label>
-                                                    <select class="form-control" name="role" id="role" data-toggle="tooltip">
+                                                    <label for="roles">身份：</label>
+                                                    <select class="form-control" name="roles" id="roles" data-toggle="tooltip">
                                                         <option value="-1">--请选择身份--</option>
-                                                        <option value="2002">普通用户</option>
-                                                        <option value="2001">超级管理员</option>
+                                                        <option value="p0">超级管理员</option>
+                                                        <option value="p1">普通用户</option>
                                                     </select>
                                                 </div>
                                             </div>
 
                                             <div class="row form-group">
                                                 <div class="col-md-12">
-                                                    <label for="describe">描述</label>
-                                                    <input type="text" class="form-control" id="describe"
-                                                           name="describe">
+                                                    <label for="description">描述</label>
+                                                    <input type="text" class="form-control" id="description"
+                                                           name="description">
                                                 </div>
                                             </div>
 

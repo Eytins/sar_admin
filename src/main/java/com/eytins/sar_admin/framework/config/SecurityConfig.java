@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @Create 2021/5/7 23:43
  */
 
-@Profile("dev")
+@Profile({"dev", "default"})
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/**/css/**", "/**/font/**", "/**/images/**", "/**/js/**", "/**/POIAdder/**").permitAll()
                 .antMatchers("/toLogin", "/failure").anonymous()
+                .antMatchers("/register_main", "/register").permitAll()
                 .anyRequest().authenticated();
 
         http.csrf().disable();

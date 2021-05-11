@@ -1,4 +1,4 @@
-package com.eytins.sar_admin.framework.basemapper;
+package com.eytins.sar_admin.framework.baseMapper;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

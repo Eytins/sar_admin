@@ -25,7 +25,7 @@ public class TestController {
     }
 
     @RequestMapping("/register_main")
-    public String register_main(){
+    public String registerMain(){
         return "register";
     }
 
