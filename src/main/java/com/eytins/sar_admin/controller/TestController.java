@@ -16,12 +16,12 @@ public class TestController {
 
     @RequestMapping("/details")
     public String details() {
-        return "/details";
+        return "details";
     }
 
     @RequestMapping("/login")
     public String login() {
-        return "/login";
+        return "login";
     }
 
     @RequestMapping("/register_main")
@@ -31,32 +31,32 @@ public class TestController {
 
     @RequestMapping("/main")
     public String main() {
-        return "/main";
+        return "main";
     }
 
     @RequestMapping("/Map")
     public String map() {
-        return "/Map";
+        return "Map";
     }
 
     @RequestMapping("/mission")
     public String mission() {
-        return "/mission";
+        return "mission";
     }
 
     @RequestMapping("/test")
     public String test() {
-        return "/test";
+        return "test";
     }
 
     @RequestMapping("/Timeline")
     public String timeline() {
-        return "/Timeline";
+        return "Timeline";
     }
 
     @RequestMapping("/User")
     public String user() {
-        return "/User";
+        return "User";
     }
 
 }

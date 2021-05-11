@@ -35,10 +35,10 @@ public class RegisterController {
         user.setRoles("ROLE_" + user.getRoles());
 
         if (userService.addUser(user)) {
-            return "/login";
+            return "login";
         } else {
             model.addAttribute("registerFail", "T");
-            return "/register";
+            return "register";
         }
     }
 

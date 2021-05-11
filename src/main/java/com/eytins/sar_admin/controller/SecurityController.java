@@ -30,6 +30,6 @@ public class SecurityController {
 
     @RequestMapping("/toMain")
     public String toMain(){
-        return "/main";
+        return "main";
     }
 }

@@ -1,7 +1,7 @@
 #这个配置是服务器上线环境配置
 spring:
   profiles:
-    active: dev
+    active: default
   datasource:
     url: jdbc:mysql://rm-bp18cz0lra064znmono.mysql.rds.aliyuncs.com/search?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
