@@ -24,6 +24,11 @@ public class TestController {
         return "/login";
     }
 
+    @RequestMapping("/register_main")
+    public String register_main(){
+        return "register";
+    }
+
     @RequestMapping("/main")
     public String main() {
         return "/main";
