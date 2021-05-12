@@ -6,6 +6,8 @@ import com.eytins.sar_admin.service.HostService;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author Eytins
@@ -31,5 +33,17 @@ public class HostServiceImpl implements HostService {
             hostMapper.insert(host);
             return true;
         }
+    }
+
+    @Override
+    public List<Host> queryHost() {
+        return hostMapper.selectAll();
+    }
+
+    @Override
+    public void deleteHost(Long id) {
+        Host host = new Host();
+        host.setId(id);
+        hostMapper.deleteByPrimaryKey(host);
     }
 }
