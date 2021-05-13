@@ -2,6 +2,7 @@ package com.eytins.sar_admin.service.impl;
 
 import com.eytins.sar_admin.dao.HostMapper;
 import com.eytins.sar_admin.entity.Host;
+import com.eytins.sar_admin.framework.ssh.Shell;
 import com.eytins.sar_admin.service.HostService;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -45,5 +46,12 @@ public class HostServiceImpl implements HostService {
         Host host = new Host();
         host.setId(id);
         hostMapper.deleteByPrimaryKey(host);
+    }
+
+    @Override
+    public boolean testHost(Host host) {
+        Shell shell = new Shell(host.getUsername(), host.getPassword(), host.getIpAddress());
+        int exitCode = shell.exec("ls");
+        return exitCode == 0;
     }
 }

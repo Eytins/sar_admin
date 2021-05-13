@@ -2,6 +2,7 @@ package com.eytins.sar_admin.controller;
 
 import com.eytins.sar_admin.entity.User;
 import com.eytins.sar_admin.service.UserService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Create 2021/5/11 21:01
  */
 
+@Profile({"dev", "default"})
 @Controller
 public class RegisterController {
 

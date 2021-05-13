@@ -29,4 +29,11 @@ public interface HostService {
      * @param id
      */
     void deleteHost(Long id);
+
+    /**
+     * 测试主机是否能正常连接
+     * @param host
+     * @return
+     */
+    boolean testHost(Host host);
 }

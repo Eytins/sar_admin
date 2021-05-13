@@ -1,5 +1,6 @@
 package com.eytins.sar_admin.controller;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Create 2021/5/10 0:17
  */
 
+@Profile({"dev", "default"})
 @Controller
 public class SecurityController {
     @RequestMapping("/toLogin")
