@@ -59,4 +59,14 @@ public class TestController {
         return "User";
     }
 
+    @RequestMapping("/log/main")
+    public String log() {
+        return "log";
+    }
+
+    @RequestMapping("/computer/main")
+    public String computer() {
+        return "computer";
+    }
+
 }

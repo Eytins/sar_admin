@@ -54,6 +54,7 @@
 <body>
 <div class="layui-layout layui-layout-admin">
 
+    <!--头部-->
     <div class="layui-header">
         <div class="layui-logo">SEARCH</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
@@ -71,6 +72,7 @@
         </ul>
     </div>
 
+    <!--左侧导航-->
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -84,6 +86,9 @@
                 </li>
                 <li class="layui-nav-item">
                     <a th:href="@{/computer/main}">主机管理</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/log/main}">日志管理</a>
                 </li>
                 <li class="layui-nav-item"><a href="">the links</a></li>
             </ul>
@@ -141,9 +146,8 @@
                                 <td>12313124@qq.com</td>
                                 <td>你好</td>
                                 <td class="text-center">
-                                    <input type="button" class="btn btn-warning btn-sm doModify" value="查看" data-value="${u.userId}" name="chakan">
-                                    <input type="button" class="btn btn-warning btn-sm doModify" value="修改" data-value="${u.userId}" name="toModifyUser">
-                                    <input type="button" class="btn btn-warning btn-sm doModify" value="删除" data-value="${u.userId}" name="toModifyUser">
+                                    <input type="button" class="btn btn-warning btn-sm " value="修改" data-value="${u.userId}" data-toggle="modal" data-target="#modify">
+                                    <input type="button" class="btn btn-warning btn-sm" value="删除" data-value="${u.userId}" name="toModifyUser">
                                 </td>
                             </tr>
 <!--                        </th:forEach>-->
@@ -154,61 +158,62 @@
                     </ul>
                 </div>
             </table>
-                    <!--修改状态栏-->
-                <div class="modal fade" tabindex="-1" id="myModal">
-                    <!-- 窗口声明 -->
-                    <div class="modal-dialog modal-lg">
-                        <!-- 内容声明 -->
-                        <div class="modal-content">
-                            <!-- 头部、主体、脚注 -->
-                            <div class="modal-header">
-                                <button class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">用户修改</h4>
-                            </div>
-                            <div class="modal-body text-center">
-                                <div class="row text-right">
-                                    <label for="N" class="col-sm-4 control-label">编号：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="N" readonly="readonly">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row text-right">
-                                    <label for="musername" class="col-sm-4 control-label">姓名：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="musername">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row text-right">
-                                    <label for="mloginName" class="col-sm-4 control-label">帐号：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="mloginName">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row text-right">
-                                    <label for="mphone" class="col-sm-4 control-label">电话：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="mphone">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row text-right">
-                                    <label for="madrees" class="col-sm-4 control-label">地址：</label>
-                                    <div class="col-sm-4">
-                                        <input type="email" class="form-control" id="madrees">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-warning updateOne" id="modifyuser">修改</button>
-                                <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
-                            </div>
-                        </div>
+        </div>
+    </div>
+</div>
+
+<!--修改状态栏-->
+<div class="modal fade" tabindex="-1" id="modify">
+    <!-- 窗口声明 -->
+    <div class="modal-dialog modal-lg">
+        <!-- 内容声明 -->
+        <div class="modal-content">
+            <!-- 头部、主体、脚注 -->
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">用户修改</h4>
+            </div>
+            <div class="modal-body text-center">
+                <div class="row text-right">
+                    <label for="N" class="col-sm-4 control-label">编号：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="N" readonly="readonly" value="01">
                     </div>
                 </div>
+                <br>
+                <div class="row text-right">
+                    <label for="musername" class="col-sm-4 control-label">姓名：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="musername">
+                    </div>
+                </div>
+                <br>
+                <div class="row text-right">
+                    <label for="mloginName" class="col-sm-4 control-label">帐号：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="mloginName">
+                    </div>
+                </div>
+                <br>
+                <div class="row text-right">
+                    <label for="mphone" class="col-sm-4 control-label">电话：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="mphone">
+                    </div>
+                </div>
+                <br>
+                <div class="row text-right">
+                    <label for="madrees" class="col-sm-4 control-label">地址：</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="madrees">
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning updateOne" id="modifyuser">修改</button>
+                <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
+            </div>
         </div>
     </div>
 </div>

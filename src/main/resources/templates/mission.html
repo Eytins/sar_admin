@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
+
     <div class="layui-header">
         <div class="layui-logo">SEARCH</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
@@ -38,6 +39,9 @@
                 </li>
                 <li class="layui-nav-item">
                     <a th:href="@{/computer/main}">主机管理</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/log/main}">日志管理</a>
                 </li>
                 <li class="layui-nav-item"><a href="">the links</a></li>
             </ul>
@@ -81,9 +85,42 @@
                 </td>
             </tr>
         </table>
-        <a th:href="@{/mission/addNew}">
-        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" name="newcreate">Start New Mission</button>
-        </a>
+        <input type="button" value="Start New Mission" class="layui-btn layui-btn-normal layui-btn-radius" id="doAddMission" data-toggle="modal" data-target="#add_mission">
+    </div>
+</div>
+
+<!-- 添加新任务模态框 -->
+<div class="modal fade " tabindex="-1" id="add_mission">
+    <!-- 窗口声明 -->
+    <div class="modal-dialog modal-lg">
+        <!-- 内容声明 -->
+        <div class="modal-content">
+            <!-- 头部、主体、脚注 -->
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">添加新任务</h4>
+            </div>
+            <div class="modal-body text-center">
+                <div class="row text-right">
+                    <label for="mname" class="col-sm-4 control-label">任务名称：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="mname">
+                    </div>
+                </div>
+                <br>
+                <div class="row text-right">
+                    <label for="time" class="col-sm-4 control-label">时间：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="time" value="默认" readonly="readonly">
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary " id="addMission">添加</button>
+                <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
+            </div>
+        </div>
     </div>
 </div>
 </body>
