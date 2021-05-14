@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
-    @RequestMapping("/details")
+    @RequestMapping("/mission/details")
     public String details() {
         return "details";
     }
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "main";
     }
 
     @RequestMapping("/register_main")
@@ -34,12 +34,12 @@ public class TestController {
         return "main";
     }
 
-    @RequestMapping("/Map")
+    @RequestMapping("/mission/Map")
     public String map() {
         return "Map";
     }
 
-    @RequestMapping("/mission")
+    @RequestMapping("/mission/main")
     public String mission() {
         return "mission";
     }
@@ -49,12 +49,12 @@ public class TestController {
         return "test";
     }
 
-    @RequestMapping("/Timeline")
+    @RequestMapping("/mission/Timeline")
     public String timeline() {
         return "Timeline";
     }
 
-    @RequestMapping("/User")
+    @RequestMapping("/user/main")
     public String user() {
         return "User";
     }
