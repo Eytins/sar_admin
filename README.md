@@ -85,6 +85,7 @@ CREATE TABLE `log` (
     `command` text NULL COMMENT '输入的命令',
     `message` text NULL COMMENT '输出的日志',
     `description` text NULL COMMENT '所做的操作',
+    `time` datetime NULL COMMENT '操作的时间',
     PRIMARY KEY (`id`) USING BTREE
 ) DEFAULT CHARSET=utf8 COMMENT='日志表'
 ```

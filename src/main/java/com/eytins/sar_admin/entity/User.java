@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +23,8 @@ import java.util.List;
 @NoArgsConstructor
 public class User implements UserDetails {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private long id;
     private String username;
     private String password;
