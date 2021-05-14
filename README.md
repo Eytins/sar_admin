@@ -76,3 +76,15 @@ CREATE TABLE `host` (
     PRIMARY KEY (`id`) USING BTREE
 ) DEFAULT CHARSET=utf8 COMMENT='主机表'
 ```
+
+```sql
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志id',
+    `ip_address` varchar(128) NOT NULL COMMENT 'ip地址',
+    `command` text NULL COMMENT '输入的命令',
+    `message` text NULL COMMENT '输出的日志',
+    `description` text NULL COMMENT '所做的操作',
+    PRIMARY KEY (`id`) USING BTREE
+) DEFAULT CHARSET=utf8 COMMENT='日志表'
+```

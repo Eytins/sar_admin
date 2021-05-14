@@ -61,4 +61,25 @@ public class HostServiceImpl implements HostService {
         int exitCode = shell.exec("ls");
         return exitCode == 0;
     }
+
+    @Override
+    public Shell addHostToCluster(Host host) {
+        Shell shell = new Shell(host.getUsername(), host.getPassword(), host.getIpAddress());
+        shell.exec("docker swarm join --token " +
+                Enums.SERVER_TOKEN.getString() + " " +
+                Enums.SERVER_IP.getString() + ":" +
+                Enums.SERVER_PORT);
+        return shell;
+    }
+
+    @Override
+    public Shell deployService(Host host, String dockerName, int insidePort, int outsidePort) {
+        Shell shell = new Shell(host.getUsername(), host.getPassword(), host.getIpAddress());
+        shell.exec("docker service create -p " +
+                outsidePort + ":" +
+                insidePort + " " +
+                dockerName);
+        return null;
+    }
+
 }
