@@ -1,4 +1,45 @@
 # 项目部署
+
+## 开发指南
+
+下载alibaba编码规范插件（尤其注意方法类等命名规范）
+
+项目所用的常量都放在com.eytins.sar_admin.framework.constants.Enums（枚举）中，可以查看里面的常量是怎么用的
+
+### Controller：
+
+1. 正常开发的功能加上注解：@Profile({"dev", "default"})
+
+2. 向Spring中注册Service采用如下方式：
+
+   ```java
+   public class HostController {
+   
+       final HostService hostService;
+   
+       public HostController(HostService hostService) {
+           this.hostService = hostService;
+       }
+   ```
+
+### Service
+
+1. 向Spring中注册mapper采用如下方式：
+
+   ```java
+       final HostMapper hostMapper;
+       final UserMapper userMapper;
+   
+       public HostServiceImpl(HostMapper hostMapper, UserMapper userMapper) {
+           this.hostMapper = hostMapper;
+           this.userMapper = userMapper;
+       }
+   ```
+
+### Mapper
+
+用到的话找刘明哲（超简单用法（不需要写sql语句））
+
 ## 数据库
 ### 数据库创建
 
