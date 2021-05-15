@@ -97,8 +97,19 @@
 </div>
 </body>
 <script>
-    var map = L.map('map').setView([37.8, -96], 4);
+    var map = L.map('map').setView([39.930868, -111.634911], 16);
     L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    const Http = new XMLHttpRequest();
+    const url='http://47.100.138.128/608test';
+    Http.open("POST", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+    }
+
+    // todo: change the basemap layer to topographic
 </script>
 </body>
 </html>
