@@ -6,8 +6,24 @@
     <title>野外救援系统</title>
     <link rel="stylesheet" href="/css/layui.css">
     <link th:href='@{//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css}' rel='stylesheet' />
-    <link rel="stylesheet" th:href="@{//cliffcloud.github.io/Leaflet.LocationShare/deps/leaflet.css}" />
-    <script th:src="@{//cliffcloud.github.io/Leaflet.LocationShare/deps/leaflet.js}"></script>
+
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+            integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+            crossorigin=""></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+    </style>
+
     <script th:src='@{/js/Leaflet.LocationShare.js}'></script>
     <style>
         .mapContainer {
@@ -27,6 +43,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="layui-layout layui-layout-admin">
@@ -95,21 +112,32 @@
     </div>
     <div class='col-md-1' style="float:right;"></div>
 </div>
+
 </body>
+
 <script>
-    var map = L.map('map').setView([39.930868, -111.634911], 16);
-    L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    var map = L.map('map').setView([39.930868, -111.634911], 15);
+    // L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.esri.basemapLayer('Topographic').addTo(map);
 
     const Http = new XMLHttpRequest();
-    const url='http://47.100.138.128/608test';
+    const url='http://47.100.138.128/servCheck';
     Http.open("POST", url);
     Http.send();
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
+    // Http.onreadystatechange = (e) => {
+    //     console.log(Http.responseText)
+    // }
 
-    // todo: change the basemap layer to topographic
+    // define rectangle geographical bounds
+    const bounds = [[39.932408, -111.41061], [39.929328, -111.634911]];
+
+    // create an orange rectangle
+    L.rectangle(bounds, {color: "#096d2f", weight: 1}).addTo(map);
+
+    // zoom the map to the rectangle bounds
+    // map.fitBounds(bounds);
+
 </script>
 </body>
 </html>
