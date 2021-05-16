@@ -129,14 +129,21 @@
     //     console.log(Http.responseText)
     // }
 
+    /*
+designated area 39.932408, -111.41061; 39.929328, -111.634911
+draw 608 boxes in this area
+*/
+
     // define rectangle geographical bounds
-    const bounds = [[39.932408, -111.41061], [39.929328, -111.634911]];
+    var bounds = [
+        [39.932408, -111.641061], [39.929328, -111.634911]
+    ];
 
     // create an orange rectangle
-    L.rectangle(bounds, {color: "#096d2f", weight: 1}).addTo(map);
+    L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
 
     // zoom the map to the rectangle bounds
-    // map.fitBounds(bounds);
+    map.fitBounds(bounds);
 
 </script>
 </body>
