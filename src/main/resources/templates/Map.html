@@ -116,34 +116,56 @@
 </body>
 
 <script>
-    var map = L.map('map').setView([39.930868, -111.634911], 15);
+    const map = L.map( 'map' ).setView( [39.930868, -111.634911], 17 );
     // L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.esri.basemapLayer('Topographic').addTo(map);
 
     const Http = new XMLHttpRequest();
-    const url='http://47.100.138.128/servCheck';
+    const url='http://47.100.138.128/608fast';
     Http.open("POST", url);
     Http.send();
 
-    // Http.onreadystatechange = (e) => {
-    //     console.log(Http.responseText)
-    // }
+    function getColor( value ) {
+        if(value > 0.5) return '#ff2423'
+        else return '#ad3422'
+    }
 
-    /*
-designated area 39.932408, -111.41061; 39.929328, -111.634911
-draw 608 boxes in this area
-*/
+    Http.onreadystatechange = (e) => {
+        if (Http.readyState === XMLHttpRequest.DONE) {
+            if (Http.status === 200) {
 
-    // define rectangle geographical bounds
-    var bounds = [
-        [39.932408, -111.641061], [39.929328, -111.634911]
-    ];
+                var json = JSON.parse(Http.responseText);
+                // var data = json.Data
+                var matrix = json["matrix_prob"];
 
-    // create an orange rectangle
-    L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
+                console.log(matrix[1][1]);
 
-    // zoom the map to the rectangle bounds
-    map.fitBounds(bounds);
+                // var layerGroup=L.LayerGroup;
+                //
+                // layerGroup.addLayer(L.rectangle([
+                //     [39.932408, -111.641061], [39.930868, -111.634911]
+                // ], {color: getColor(matrix[0][0])}));
+                // layerGroup.addLayer(L.rectangle([
+                //     [39.930868, -111.634911], [39.929328, -111.641061]
+                // ], {color: getColor(matrix[0][0])}));
+                // layerGroup.addLayer(L.rectangle([
+                //     [39.929328, -111.641061], [39.930868, -111.634911]
+                // ], {color: getColor(matrix[0][0])}));
+                // layerGroup.addLayer(L.rectangle([
+                //     [39.930868, -111.634911], [39.929328, -111.634911]
+                // ], {color: getColor(matrix[0][0])}));
+                //
+                // map.addLayer(layerGroup);
+
+            } else {
+                console.log('There was a problem with the request.');
+            }
+        }
+    }
+
+
+
+
 
 </script>
 </body>
