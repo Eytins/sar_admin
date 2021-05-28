@@ -145,35 +145,16 @@
                 var height = -(northWestLongitude - sorthWestLongitude)/19;
                 for(var i = 0; i <32 ; i++){
                     for(var j = 0 ; j<19;j++){
-                        var red = 0;
-                        var blue = 0;
-                        var green = matrix[i][j]*255;
+                        var red = 125+120/(matrix[i][j]+1);
+                        var blue = (matrix[i][j]+1)/49*185+70;
+                        var green = 100;
                         var bounds = [
                             [northWestLatitude-(length*i), northWestLongitude+(height*j)], [northWestLatitude-(length*(i+1)), northWestLongitude+(height*(j+1))]
                         ];
-                        L.rectangle(bounds, {color: "rgb("+red+","+green+","+blue+")", weight: 0}).addTo(map);
+                        L.rectangle(bounds, {color: "rgb("+red+","+green+","+blue+")", weight: 0, fillOpacity: 0.6}).addTo(map);
 
-                        // zoom the map to the rectangle bounds
-                        map.fitBounds(bounds);
                     }
                 }
-                // var layerGroup=L.LayerGroup;
-                //
-                // layerGroup.addLayer(L.rectangle([
-                //     [39.932408, -111.641061], [39.930868, -111.634911]
-                // ], {color: getColor(matrix[0][0])}));
-                // layerGroup.addLayer(L.rectangle([
-                //     [39.930868, -111.634911], [39.929328, -111.641061]
-                // ], {color: getColor(matrix[0][0])}));
-                // layerGroup.addLayer(L.rectangle([
-                //     [39.929328, -111.641061], [39.930868, -111.634911]
-                // ], {color: getColor(matrix[0][0])}));
-                // layerGroup.addLayer(L.rectangle([
-                //     [39.930868, -111.634911], [39.929328, -111.634911]
-                // ], {color: getColor(matrix[0][0])}));
-                //
-                // map.addLayer(layerGroup);
-
             } else {
                 console.log('There was a problem with the request.');
             }
@@ -182,15 +163,15 @@
 
 
     // define rectangle geographical bounds
-    /*var bounds = [
+    var bounds = [
         [39.932408, -111.641061], [39.929328, -111.634911]
     ];
 
     // create an orange rectangle
-    L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
+    L.rectangle(bounds, {weight: 2, fillOpacity: 0}).addTo(map);
 
     // zoom the map to the rectangle bounds
-    map.fitBounds(bounds);*/
+    map.fitBounds(bounds);
 
 
 </script>
