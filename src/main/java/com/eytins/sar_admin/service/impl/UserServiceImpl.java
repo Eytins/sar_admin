@@ -5,6 +5,8 @@ import com.eytins.sar_admin.entity.User;
 import com.eytins.sar_admin.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author Eytins
@@ -28,5 +30,10 @@ public class UserServiceImpl implements UserService {
             userMapper.insert(user);
             return true;
         }
+    }
+
+    @Override
+    public List<User> queryUser() {
+        return userMapper.selectAll();
     }
 }

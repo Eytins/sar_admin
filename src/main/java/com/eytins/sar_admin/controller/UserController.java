@@ -28,8 +28,7 @@ public class UserController {
 
     @PostMapping("/queryUser")
     public List<User> queryUser(){
-
-        return null;
+        return userService.queryUser();
     }
 
     @PostMapping("/updateUser")

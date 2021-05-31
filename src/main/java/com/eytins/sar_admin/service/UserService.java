@@ -2,6 +2,8 @@ package com.eytins.sar_admin.service;
 
 import com.eytins.sar_admin.entity.User;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author Eytins
@@ -16,5 +18,7 @@ public interface UserService {
      * @return
      */
     boolean addUser(User user);
+
+    List<User> queryUser();
 
 }

@@ -25,17 +25,17 @@ public class HostController {
         this.hostService = hostService;
     }
 
+    @PostMapping("/queryHost")
+    public String queryHost() {
+        return "";
+    }
+
     @PostMapping("/addHost")
     public String addHost(Host host, Model model) {
         if (!hostService.addHost(host)) {
             //todo:异常处理(如果重复了，前端弹窗)
         }
 
-        return "";
-    }
-
-    @PostMapping("/queryHost")
-    public String queryHost() {
         return "";
     }
 
