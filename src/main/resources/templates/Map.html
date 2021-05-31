@@ -116,23 +116,51 @@
 </body>
 
 <script>
-    var map = L.map('map').setView([39.930868, -111.634911], 15);
+    const map = L.map( 'map' ).setView( [39.930868, -111.634911], 17 );
+    const northWestLatitude = 39.932408;
+    const northWestLongitude = -111.641061;
+    const sorthEastLatitude = 39.929328;
+    const sorthWestLongitude = -111.634911;
     // L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.esri.basemapLayer('Topographic').addTo(map);
 
     const Http = new XMLHttpRequest();
-    const url='http://47.100.138.128/servCheck';
+    const url='http://47.100.138.128/608fast';
     Http.open("POST", url);
     Http.send();
 
-    // Http.onreadystatechange = (e) => {
-    //     console.log(Http.responseText)
-    // }
+    function getColor( value ) {
+        if(value > 0.5) return '#ff2423'
+        else return '#ad3422'
+    }
 
-    /*
-designated area 39.932408, -111.41061; 39.929328, -111.634911
-draw 608 boxes in this area
-*/
+    Http.onreadystatechange = (e) => {
+        if (Http.readyState === XMLHttpRequest.DONE) {
+            if (Http.status === 200) {
+
+                var json = JSON.parse(Http.responseText);
+                // var data = json.Data
+                var matrix = json["matrix_prob"];
+                var length = (northWestLatitude - sorthEastLatitude)/32;
+                var height = -(northWestLongitude - sorthWestLongitude)/19;
+                for(var i = 0; i <32 ; i++){
+                    for(var j = 0 ; j<19;j++){
+                        var red = 125+120/(matrix[i][j]+1);
+                        var blue = (matrix[i][j]+1)/49*185+70;
+                        var green = 100;
+                        var bounds = [
+                            [northWestLatitude-(length*i), northWestLongitude+(height*j)], [northWestLatitude-(length*(i+1)), northWestLongitude+(height*(j+1))]
+                        ];
+                        L.rectangle(bounds, {color: "rgb("+red+","+green+","+blue+")", weight: 0, fillOpacity: 0.6}).addTo(map);
+
+                    }
+                }
+            } else {
+                console.log('There was a problem with the request.');
+            }
+        }
+    }
+
 
     // define rectangle geographical bounds
     var bounds = [
@@ -140,10 +168,11 @@ draw 608 boxes in this area
     ];
 
     // create an orange rectangle
-    L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
+    L.rectangle(bounds, {weight: 2, fillOpacity: 0}).addTo(map);
 
     // zoom the map to the rectangle bounds
     map.fitBounds(bounds);
+
 
 </script>
 </body>
