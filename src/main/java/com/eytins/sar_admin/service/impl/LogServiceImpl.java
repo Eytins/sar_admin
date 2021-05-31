@@ -23,7 +23,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public List<Log> queryHost() {
+    public List<Log> queryLog() {
         return logMapper.selectAll();
     }
 }

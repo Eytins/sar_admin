@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author Eytins
@@ -26,8 +28,8 @@ public class HostController {
     }
 
     @PostMapping("/queryHost")
-    public String queryHost() {
-        return "";
+    public List<Host> queryHost() {
+        return hostService.queryHost();
     }
 
     @PostMapping("/addHost")

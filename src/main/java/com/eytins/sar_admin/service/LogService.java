@@ -16,5 +16,5 @@ public interface LogService {
      * 查询所有日志
      * @return
      */
-    List<Log> queryHost();
+    List<Log> queryLog();
 }

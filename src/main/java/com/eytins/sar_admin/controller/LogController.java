@@ -26,6 +26,6 @@ public class LogController {
 
     @PostMapping("/queryLog")
     public List<Log> queryLog(){
-        return null;
+        return logService.queryLog();
     }
 }
