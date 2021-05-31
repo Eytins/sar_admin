@@ -56,7 +56,7 @@ CREATE TABLE `user` (
     `email` varchar(128)  NULL DEFAULT NULL COMMENT '邮箱',
     `phone` varchar(32)  NULL DEFAULT NULL COMMENT '手机',
     `description` varchar(128)  NULL DEFAULT NULL COMMENT '描述',
-    `roles` text CHARACTER SET utf8 COMMENT 'p0,p1,p2,p3',
+    `roles` text CHARACTER SET utf8 COMMENT 'p0,p1',
     PRIMARY KEY (`id`) USING BTREE
 )  DEFAULT CHARSET=utf8 COMMENT='用户表';
 

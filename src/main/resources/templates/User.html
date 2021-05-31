@@ -22,32 +22,32 @@
     <script type="text/javascript">
         $(function()
         {
-            // //--------------------分页部分  ↓
-            // var pages;
-            //
-            // // ${userlist.pages } 对应PageInfo对象中的pages;
-            // if ("${userlist.pages }" == 0)
-            // {
-            //     pages = 1;
-            // }else
-            // {
-            //     pages = "${userlist.pages }";
-            // }
-            //
-            // var options =
-            //     {
-            //         bootstrapMajorVersion : 3,                        // bootstrap版本 (此项目中所有的页面都是用bootstrap 3画的)
-            //         currentPage  : "${userlist.pageNum }", // pageNum对应PageInfo对象中的字段pageNum
-            //         totalPages : pages,
-            //         aligment : "center",
-            //         pageUrl  : function(type, page, current)
-            //         {
-            //             return "${pageContext.request.contextPath }/user/userManager.html?pageNo=" + page;
-            //         }
-            //     };
-            //
-            // $("#productTypePage").bootstrapPaginator(options);
-            // //----------------------------分页部分  ↑
+            //--------------------分页部分  ↓
+            var pages;
+
+            // ${userlist.pages } 对应PageInfo对象中的pages;
+            if ("${userlist.pages }" == 0)
+            {
+                pages = 1;
+            }else
+            {
+                pages = "${userlist.pages }";
+            }
+
+            var options =
+                {
+                    bootstrapMajorVersion : 3,                        // bootstrap版本 (此项目中所有的页面都是用bootstrap 3画的)
+                    currentPage  : "${userlist.pageNum }", // pageNum对应PageInfo对象中的字段pageNum
+                    totalPages : pages,
+                    aligment : "center",
+                    pageUrl  : function(type, page, current)
+                    {
+                        return "${pageContext.request.contextPath }/user/userManager.html?pageNo=" + page;
+                    }
+                };
+
+            $("#productTypePage").bootstrapPaginator(options);
+            //----------------------------分页部分  ↑
         });
     </script>
 </head>
