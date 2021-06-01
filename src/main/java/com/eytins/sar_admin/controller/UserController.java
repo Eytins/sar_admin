@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Profile({"dev","default"})
-@Controller("/user")
+//@Controller("/user")
 public class UserController {
 
     final

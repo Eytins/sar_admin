@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,15 +14,9 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img th:src="@{/tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg}" class="layui-nav-img">
-                    ${username}
                 </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">退出</a></dd>
-                    <dd><a href="">注销</a></dd>
-                </dl>
             </li>
-            <li class="layui-nav-item"><a th:href="@{www.baidu.com}">Sign out</a></li>
+            <li class="layui-nav-item"><a th:href="@{/logout}">Sign out</a></li>
         </ul>
     </div>
 
@@ -30,20 +24,20 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed">
+
+                <li sec:authorize="hasRole('p1')" class="layui-nav-item layui-nav-itemed">
                     <a class="" th:href="@{/mission/main}">任务管理</a>
                 </li>
-                <li class="layui-nav-item">
-                    <a calss="" th:href="@{/user/main}">用户管理</a>
 
+                <li sec:authorize="hasRole('p0')" class="layui-nav-item">
+                    <a calss="" th:href="@{/user/main}">用户管理</a>
                 </li>
-                <li class="layui-nav-item">
+                <li sec:authorize="hasRole('p0')" class="layui-nav-item">
                     <a th:href="@{/computer/main}">主机管理</a>
                 </li>
-                <li class="layui-nav-item">
+                <li sec:authorize="hasRole('p0')" class="layui-nav-item">
                     <a th:href="@{/log/main}">日志管理</a>
                 </li>
-                <li class="layui-nav-item"><a href="">the links</a></li>
             </ul>
         </div>
     </div>
